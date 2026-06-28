@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Centria · Human led, AI empowered</title>
+<meta name="description" content="Centria combines AI and human expertise to design and implement custom operating systems for business. Advisory, custom design, and applied AI." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%20120%22%3E%3Crect%20width%3D%22120%22%20height%3D%22120%22%20rx%3D%2226%22%20fill%3D%22%23FFFFFF%22/%3E%3Cg%20transform%3D%22translate%2812%2012%29%20scale%280.8%29%22%3E%3Cpolygon%20points%3D%22105.03%2C34.00%2060.00%2C8.00%2060.00%2C29.50%2086.41%2C44.75%22%20fill%3D%22%236E97D0%22%20stroke%3D%22%2334588D%22%20stroke-width%3D%221%22%20stroke-linejoin%3D%22round%22/%3E%20%3Cpolygon%20points%3D%2260.00%2C8.00%2014.97%2C34.00%2033.59%2C44.75%2060.00%2C29.50%22%20fill%3D%22%236E97D0%22%20stroke%3D%22%2334588D%22%20stroke-width%3D%221%22%20stroke-linejoin%3D%22round%22/%3E%20%3Cpolygon%20points%3D%2214.97%2C34.00%2014.97%2C86.00%2033.59%2C75.25%2033.59%2C44.75%22%20fill%3D%22%234D7ABE%22%20stroke%3D%22%2334588D%22%20stroke-width%3D%221%22%20stroke-linejoin%3D%22round%22/%3E%20%3Cpolygon%20points%3D%2214.97%2C86.00%2060.00%2C112.00%2060.00%2C90.50%2033.59%2C75.25%22%20fill%3D%22%233F69A9%22%20stroke%3D%22%2334588D%22%20stroke-width%3D%221%22%20stroke-linejoin%3D%22round%22/%3E%20%3Cpolygon%20points%3D%2260.00%2C112.00%20105.03%2C86.00%2086.41%2C75.25%2060.00%2C90.50%22%20fill%3D%22%233F69A9%22%20stroke%3D%22%2334588D%22%20stroke-width%3D%221%22%20stroke-linejoin%3D%22round%22/%3E%20%3Cpath%20d%3D%22M%20105.03%2C34.00%20L%2060.00%2C8.00%20L%2014.97%2C34.00%20L%2014.97%2C86.00%20L%2060.00%2C112.00%20L%20105.03%2C86.00%20L%2086.41%2C75.25%20L%2060.00%2C90.50%20L%2033.59%2C75.25%20L%2033.59%2C44.75%20L%2060.00%2C29.50%20L%2086.41%2C44.75%20Z%22%20fill%3D%22none%22%20stroke%3D%22%2334588D%22%20stroke-width%3D%221%22%20stroke-linejoin%3D%22round%22/%3E%3C/g%3E%3C/svg%3E" />
+
+<style>
+  :root{
+    --bg:#F3F5F7;
+    --surface:#FFFFFF;
+    --card:#F8FAFC;
+    --border:#CFD4D6;
+    --border-strong:#B8C0C7;
+    --divider:#E7ECF1;
+    --primary:#4D7ABE;
+    --primary-hover:#3F69A9;
+    --primary-active:#34588D;
+    --accent:#2CB6B0;
+    --text:#141514;
+    --text-2:#4A5563;
+    --muted:#6B7682;
+    --inverse:#FFFFFF;
+    --focus:#3B82F6;
+    --maxw:1180px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+    --shadow-sm:0 1px 2px rgba(20,21,20,.05);
+    --shadow:0 1px 2px rgba(20,21,20,.04), 0 10px 30px rgba(20,21,20,.06);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  h1,h2,h3,h4{font-weight:700;letter-spacing:-0.02em;line-height:1.12;color:var(--text)}
+
+  .eyebrow{
+    font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--primary);
+  }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:.55em;
+    font-size:15px;font-weight:600;
+    padding:11px 20px;border-radius:9px;
+    border:1px solid transparent;
+    transition:background .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease), color .2s var(--ease);
+  }
+  .btn-primary{background:var(--primary);color:var(--inverse)}
+  .btn-primary:hover{background:var(--primary-hover)}
+  .btn-primary:active{background:var(--primary-active)}
+  .btn-secondary{background:var(--surface);color:var(--text);border-color:var(--border)}
+  .btn-secondary:hover{border-color:var(--border-strong);background:var(--card)}
+  .btn-inverse{background:var(--surface);color:var(--primary)}
+  .btn-inverse:hover{background:#eef3fb}
+  .btn .arrow{transition:transform .2s var(--ease)}
+  .btn:hover .arrow{transform:translateX(3px)}
+
+  :focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:6px}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(243,245,247,.82);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--divider);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:-0.01em;color:var(--text)}
+  .brand .mark{height:30px;width:30px;flex:none}
+  .nav-links{display:flex;align-items:center;gap:28px}
+  .nav-links a.lnk{font-size:14px;font-weight:500;color:var(--muted);transition:color .2s}
+  .nav-links a.lnk:hover{color:var(--text)}
+  @media (max-width:760px){.nav-links a.lnk{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:72px 0 84px}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center}
+  .pill{
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--border);background:var(--surface);
+    padding:5px 12px;border-radius:999px;
+    font-size:12.5px;font-weight:500;color:var(--text-2);
+  }
+  .pill .dot{width:7px;height:7px;border-radius:999px;background:var(--accent)}
+  .hero h1{font-size:clamp(38px,5.6vw,56px);margin:22px 0 0;letter-spacing:-0.03em}
+  .hero h1 .grad{
+    background:linear-gradient(92deg,var(--primary),var(--accent));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero .lead{color:var(--text-2);font-size:clamp(16px,1.6vw,18px);margin-top:20px;max-width:520px}
+  .hero .cta-row{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+
+  .pillars{display:flex;gap:24px;margin-top:40px;flex-wrap:wrap}
+  .pillars .p-item{min-width:120px}
+  .pillars .p-item .t{font-size:15px;font-weight:600;color:var(--text)}
+  .pillars .p-item .c{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .pillars .vr{width:1px;align-self:stretch;background:var(--divider)}
+
+  /* globe */
+  .globe-wrap{position:relative;width:100%;max-width:520px;aspect-ratio:1/1;margin-inline:auto}
+  .globe-wrap canvas{width:100%;height:100%;display:block;cursor:grab;touch-action:none}
+  .globe-wrap canvas:active{cursor:grabbing}
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:24px}
+    .globe-wrap{grid-row:1;max-width:380px}
+    .hero{padding:44px 0 56px}
+  }
+
+  /* ---------- strip ---------- */
+  .strip{border-block:1px solid var(--divider);background:var(--surface)}
+  .strip .wrap{padding-block:24px}
+  .strip p{font-size:clamp(16px,1.8vw,20px);font-weight:500;color:var(--text);max-width:880px;letter-spacing:-0.01em}
+  .strip span{color:var(--primary)}
+
+  /* ---------- section shell ---------- */
+  .section{padding:88px 0}
+  .section-head{max-width:620px;margin-bottom:48px}
+  .section-head h2{font-size:clamp(26px,3.4vw,34px);margin-top:12px}
+  .section-head p{color:var(--text-2);margin-top:14px;font-size:17px}
+
+  /* ---------- services ---------- */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media (max-width:900px){.services-grid{grid-template-columns:1fr}}
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:28px 26px;
+    box-shadow:var(--shadow-sm);
+    transition:border-color .25s var(--ease), box-shadow .25s var(--ease), transform .25s var(--ease);
+  }
+  .card:hover{border-color:var(--border-strong);box-shadow:var(--shadow);transform:translateY(-3px)}
+  .card .num{font-size:12.5px;font-weight:600;color:var(--accent);letter-spacing:.06em}
+  .card h3{font-size:20px;margin:14px 0 6px}
+  .card .pitch{color:var(--text);font-weight:500;margin-bottom:8px;font-size:15px}
+  .card .desc{color:var(--muted);font-size:14.5px}
+  .flow{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px;align-items:center}
+  .flow .step{
+    font-size:12px;font-weight:500;color:var(--primary-active);
+    background:rgba(44,182,176,.10);border:1px solid rgba(44,182,176,.28);
+    border-radius:7px;padding:4px 9px;
+  }
+  .flow .sep{color:var(--muted);font-size:12px}
+
+  /* ---------- process ---------- */
+  .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+  .stages::before{content:"";position:absolute;top:34px;left:6%;right:6%;height:1px;
+    background:linear-gradient(90deg,transparent,var(--primary),var(--accent),transparent);opacity:.45}
+  @media (max-width:860px){.stages{grid-template-columns:1fr 1fr}.stages::before{display:none}}
+  @media (max-width:520px){.stages{grid-template-columns:1fr}}
+  .stage{
+    background:var(--surface);border:1px solid var(--border);border-radius:12px;
+    padding:24px 22px;box-shadow:var(--shadow-sm);
+    transition:border-color .25s var(--ease), transform .25s var(--ease);
+  }
+  .stage:hover{border-color:var(--border-strong);transform:translateY(-3px)}
+  .stage .dot{width:12px;height:12px;border-radius:999px;background:var(--accent);
+    box-shadow:0 0 0 4px rgba(44,182,176,.14);position:relative;z-index:1;margin-bottom:18px}
+  .stage .idx{font-size:12.5px;font-weight:600;color:var(--primary);letter-spacing:.06em}
+  .stage h3{font-size:19px;margin:6px 0 9px}
+  .stage p{color:var(--muted);font-size:14.5px}
+
+  /* ---------- closing ---------- */
+  .closing{padding:88px 0}
+  .closing .panel{
+    background:var(--primary);border-radius:20px;padding:64px 40px;text-align:center;color:var(--inverse);
+  }
+  .closing .panel .eyebrow{color:rgba(255,255,255,.75)}
+  .closing h2{color:var(--inverse);font-size:clamp(26px,4vw,40px);max-width:720px;margin:12px auto 0}
+  .closing p{color:rgba(255,255,255,.82);max-width:480px;margin:16px auto 28px;font-size:17px}
+
+  /* ---------- footer ---------- */
+  .footer{border-top:1px solid var(--divider);background:var(--surface);padding:56px 0 44px}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+  @media (max-width:760px){.footer-grid{grid-template-columns:1fr;gap:28px}}
+  .footer .brand{margin-bottom:16px}
+  .footer .tag{color:var(--muted);font-size:14.5px;max-width:340px}
+  .footer h4{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .footer a.f-lnk{display:block;color:var(--text);font-size:14.5px;margin-bottom:9px;transition:color .2s;width:fit-content}
+  .footer a.f-lnk:hover{color:var(--primary)}
+  .footer address{font-style:normal;color:var(--muted);font-size:14.5px;line-height:1.7}
+  .legal{margin-top:44px;padding-top:22px;border-top:1px solid var(--divider);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:13px}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Centria home">
+      <svg class="mark" viewBox="0 0 120 120" aria-hidden="true" fill="none"><polygon points="105.03,34.00 60.00,8.00 60.00,29.50 86.41,44.75" fill="#6E97D0" stroke="#34588D" stroke-width="1" stroke-linejoin="round"/><polygon points="60.00,8.00 14.97,34.00 33.59,44.75 60.00,29.50" fill="#6E97D0" stroke="#34588D" stroke-width="1" stroke-linejoin="round"/><polygon points="14.97,34.00 14.97,86.00 33.59,75.25 33.59,44.75" fill="#4D7ABE" stroke="#34588D" stroke-width="1" stroke-linejoin="round"/><polygon points="14.97,86.00 60.00,112.00 60.00,90.50 33.59,75.25" fill="#3F69A9" stroke="#34588D" stroke-width="1" stroke-linejoin="round"/><polygon points="60.00,112.00 105.03,86.00 86.41,75.25 60.00,90.50" fill="#3F69A9" stroke="#34588D" stroke-width="1" stroke-linejoin="round"/><path d="M 105.03,34.00 L 60.00,8.00 L 14.97,34.00 L 14.97,86.00 L 60.00,112.00 L 105.03,86.00 L 86.41,75.25 L 60.00,90.50 L 33.59,75.25 L 33.59,44.75 L 60.00,29.50 L 86.41,44.75 Z" fill="none" stroke="#34588D" stroke-width="1" stroke-linejoin="round"/></svg>
+      <span>Centria</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="lnk" href="#what">What we do</a>
+      <a class="lnk" href="#how">How we work</a>
+      <a class="btn btn-primary" style="padding:9px 18px;font-size:14px" href="mailto:Contact@Centria.ae">Contact us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="pill"><span class="dot"></span> Human led · AI empowered</span>
+        <h1>Operating systems,<br><span class="grad">built around your business.</span></h1>
+        <p class="lead">Centria combines AI and human expertise to design and implement custom operating systems for business operations. Structured enough to rely on, adaptive enough to fit.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:Contact@Centria.ae">Contact us <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-secondary" href="#how">How we work</a>
+        </div>
+        <div class="pillars">
+          <div class="p-item"><div class="t">Advisory</div><div class="c">Understand &amp; diagnose</div></div>
+          <div class="vr"></div>
+          <div class="p-item"><div class="t">Custom Design</div><div class="c">Build &amp; implement</div></div>
+          <div class="vr"></div>
+          <div class="p-item"><div class="t">Applied AI</div><div class="c">Automate &amp; grow</div></div>
+        </div>
+      </div>
+
+      <div class="globe-wrap">
+        <canvas id="globe" aria-hidden="true"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STRIP ============ -->
+  <div class="strip">
+    <div class="wrap">
+      <p>Combining AI and human expertise to deliver <span>advisory</span> and <span>custom design</span> for business operations.</p>
+    </div>
+  </div>
+
+  <!-- ============ WHAT WE DO ============ -->
+  <section class="section" id="what">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What we do</span>
+        <h2>Three ways we build the system around you.</h2>
+        <p>From first diagnosis to live operation, every engagement keeps a human in the lead and AI doing the heavy lifting.</p>
+      </div>
+      <div class="services-grid">
+        <article class="card reveal">
+          <div class="num">01</div>
+          <h3>Advisory Services</h3>
+          <p class="pitch">We learn your business before we touch it.</p>
+          <p class="desc">We study how your operation actually runs, find where it strains, and set a direction you can act on.</p>
+          <div class="flow">
+            <span class="step">Understand</span><span class="sep">&rarr;</span>
+            <span class="step">Diagnose</span><span class="sep">&rarr;</span>
+            <span class="step">Propose</span>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="num">02</div>
+          <h3>Custom Design Solutions</h3>
+          <p class="pitch">Systems built to fit, not to force.</p>
+          <p class="desc">We design and ship the operating system your work needs, then keep refining it once it is in your hands.</p>
+          <div class="flow">
+            <span class="step">Develop</span><span class="sep">&rarr;</span>
+            <span class="step">Implement</span><span class="sep">&rarr;</span>
+            <span class="step">Improve</span>
+          </div>
+        </article>
+        <article class="card reveal">
+          <div class="num">03</div>
+          <h3>Services as a Solution</h3>
+          <p class="pitch">Applied AI with human ownership.</p>
+          <p class="desc">We run the work for you. AI handles volume and speed, our team owns the judgment and the outcome.</p>
+          <div class="flow">
+            <span class="step">Automate</span><span class="sep">&rarr;</span>
+            <span class="step">Resolve</span><span class="sep">&rarr;</span>
+            <span class="step">Grow</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW WE WORK ============ -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">How we work</span>
+        <h2>One sequence. Map, design, build, adapt.</h2>
+        <p>A foundation that holds, and a system that keeps moving with you. Structured where it counts, adaptive where it matters.</p>
+      </div>
+      <div class="stages">
+        <div class="stage reveal">
+          <div class="dot"></div><div class="idx">01</div>
+          <h3>Map</h3>
+          <p>We map how your business runs today. People, processes, data, and the gaps between them.</p>
+        </div>
+        <div class="stage reveal">
+          <div class="dot"></div><div class="idx">02</div>
+          <h3>Design</h3>
+          <p>We design the operating system around your reality, built for your constraints rather than a template.</p>
+        </div>
+        <div class="stage reveal">
+          <div class="dot"></div><div class="idx">03</div>
+          <h3>Build</h3>
+          <p>We build with AI tooling and human judgment, then put it to work where it matters.</p>
+        </div>
+        <div class="stage reveal">
+          <div class="dot"></div><div class="idx">04</div>
+          <h3>Adapt</h3>
+          <p>We stay close as conditions change, so the system keeps fitting long after launch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="closing">
+    <div class="wrap">
+      <div class="panel reveal">
+        <span class="eyebrow">Let's build</span>
+        <h2>Let's design the operating system your business deserves.</h2>
+        <p>Tell us how you work today. We will show you where it can go.</p>
+        <a class="btn btn-inverse" href="mailto:Contact@Centria.ae">Contact us <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Centria home">
+          <svg class="mark" viewBox="0 0 120 120" aria-hidden="true" fill="none"><polygon points="105.03,34.00 60.00,8.00 60.00,29.50 86.41,44.75" fill="#6E97D0" stroke="#34588D" stroke-width="1" stroke-linejoin="round"/><polygon points="60.00,8.00 14.97,34.00 33.59,44.75 60.00,29.50" fill="#6E97D0" stroke="#34588D" stroke-width="1" stroke-linejoin="round"/><polygon points="14.97,34.00 14.97,86.00 33.59,75.25 33.59,44.75" fill="#4D7ABE" stroke="#34588D" stroke-width="1" stroke-linejoin="round"/><polygon points="14.97,86.00 60.00,112.00 60.00,90.50 33.59,75.25" fill="#3F69A9" stroke="#34588D" stroke-width="1" stroke-linejoin="round"/><polygon points="60.00,112.00 105.03,86.00 86.41,75.25 60.00,90.50" fill="#3F69A9" stroke="#34588D" stroke-width="1" stroke-linejoin="round"/><path d="M 105.03,34.00 L 60.00,8.00 L 14.97,34.00 L 14.97,86.00 L 60.00,112.00 L 105.03,86.00 L 86.41,75.25 L 60.00,90.50 L 33.59,75.25 L 33.59,44.75 L 60.00,29.50 L 86.41,44.75 Z" fill="none" stroke="#34588D" stroke-width="1" stroke-linejoin="round"/></svg>
+          <span>Centria</span>
+        </a>
+        <p class="tag">Combining AI and human expertise to deliver advisory and custom design for business operations.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a class="f-lnk" href="mailto:Contact@Centria.ae">Contact@Centria.ae</a>
+        <a class="f-lnk" href="https://Centria.ae" target="_blank" rel="noopener">Centria.ae</a>
+      </div>
+      <div>
+        <h4>Office</h4>
+        <address>
+          Smart Station, First Floor,<br>
+          Incubator Building, Masdar City,<br>
+          Abu Dhabi, United Arab Emirates
+        </address>
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; <span id="yr"></span> Centria Intelligence Limited</span>
+      <span>Human led, AI empowered.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // ----- scroll reveal -----
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion:reduce)').matches){
+      els.forEach(function(e){e.classList.add('in')}); return;
+    }
+    var io=new IntersectionObserver(function(en){
+      en.forEach(function(x){ if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);} });
+    },{threshold:.15});
+    els.forEach(function(e){io.observe(e)});
+  })();
+
+  // ----- interactive globe (vanilla port) -----
+  // Fibonacci-sphere dot grid, auto-rotating with drag, connection arcs with
+  // traveling pulses, and pulsing city markers. Recolored to the Centria palette.
+  (function(){
+    var canvas=document.getElementById('globe'); if(!canvas) return;
+    var ctx=canvas.getContext('2d');
+    var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+    var rotY=0.4, rotX=0.3, time=0;
+    var drag={active:false,sx:0,sy:0,ry:0,rx:0};
+    var AUTO=0.0022;
+
+    var DOT=[77,122,190];                 // --primary
+    var ARC='rgba(44,182,176,0.45)';      // --accent
+    var MK='rgba(44,182,176,';            // --accent (alpha appended)
+
+    var markers=[
+      {lat:37.78,lng:-122.42,label:'San Francisco'},
+      {lat:51.51,lng:-0.13,label:'London'},
+      {lat:35.68,lng:139.69,label:'Tokyo'},
+      {lat:1.35,lng:103.82,label:'Singapore'},
+      {lat:28.61,lng:77.21,label:'Delhi'},
+      {lat:-23.55,lng:-46.63,label:'Sao Paulo'},
+      {lat:-33.87,lng:151.21,label:'Sydney'},
+      {lat:24.45,lng:54.38,label:'Abu Dhabi'}
+    ];
+    var connections=[
+      {from:[37.78,-122.42],to:[51.51,-0.13]},
+      {from:[51.51,-0.13],to:[35.68,139.69]},
+      {from:[51.51,-0.13],to:[24.45,54.38]},
+      {from:[24.45,54.38],to:[1.35,103.82]},
+      {from:[24.45,54.38],to:[28.61,77.21]},
+      {from:[37.78,-122.42],to:[-23.55,-46.63]},
+      {from:[1.35,103.82],to:[-33.87,151.21]},
+      {from:[35.68,139.69],to:[-33.87,151.21]}
+    ];
+
+    var dots=[]; (function(){
+      var N=1000, gr=(1+Math.sqrt(5))/2;
+      for(var i=0;i<N;i++){
+        var th=2*Math.PI*i/gr, ph=Math.acos(1-2*(i+0.5)/N);
+        dots.push([Math.cos(th)*Math.sin(ph), Math.cos(ph), Math.sin(th)*Math.sin(ph)]);
+      }
+    })();
+
+    function ll(lat,lng,r){
+      var phi=(90-lat)*Math.PI/180, th=(lng+180)*Math.PI/180;
+      return [-(r*Math.sin(phi)*Math.cos(th)), r*Math.cos(phi), r*Math.sin(phi)*Math.sin(th)];
+    }
+    function rY(x,y,z,a){var c=Math.cos(a),s=Math.sin(a);return [x*c+z*s,y,-x*s+z*c];}
+    function rX(x,y,z,a){var c=Math.cos(a),s=Math.sin(a);return [x,y*c-z*s,y*s+z*c];}
+    function pr(x,y,z,cx,cy,f){var sc=f/(f+z);return [x*sc+cx,y*sc+cy];}
+
+    function draw(){
+      var dpr=Math.min(window.devicePixelRatio||1,2);
+      var w=canvas.clientWidth, h=canvas.clientHeight;
+      canvas.width=w*dpr; canvas.height=h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+      var cx=w/2, cy=h/2, radius=Math.min(w,h)*0.40, fov=600;
+
+      if(!drag.active && !reduce) rotY+=AUTO;
+      if(!reduce) time+=0.015;
+      var ry=rotY, rx=rotX;
+
+      ctx.clearRect(0,0,w,h);
+
+      ctx.beginPath(); ctx.arc(cx,cy,radius,0,Math.PI*2);
+      ctx.strokeStyle='rgba(77,122,190,0.14)'; ctx.lineWidth=1; ctx.stroke();
+
+      for(var i=0;i<dots.length;i++){
+        var p=dots[i], x=p[0]*radius,y=p[1]*radius,z=p[2]*radius, a;
+        a=rX(x,y,z,rx); x=a[0];y=a[1];z=a[2];
+        a=rY(x,y,z,ry); x=a[0];y=a[1];z=a[2];
+        if(z>0) continue;
+        var s=pr(x,y,z,cx,cy,fov);
+        var da=Math.max(0.12,1-(z+radius)/(2*radius));
+        ctx.beginPath(); ctx.arc(s[0],s[1],1+da*0.8,0,Math.PI*2);
+        ctx.fillStyle='rgba('+DOT[0]+','+DOT[1]+','+DOT[2]+','+da.toFixed(2)+')';
+        ctx.fill();
+      }
+
+      for(var ci=0;ci<connections.length;ci++){
+        var c=connections[ci];
+        var p1=ll(c.from[0],c.from[1],radius), p2=ll(c.to[0],c.to[1],radius), t1,t2;
+        t1=rX(p1[0],p1[1],p1[2],rx); t1=rY(t1[0],t1[1],t1[2],ry);
+        t2=rX(p2[0],p2[1],p2[2],rx); t2=rY(t2[0],t2[1],t2[2],ry);
+        if(t1[2]>radius*0.3 && t2[2]>radius*0.3) continue;
+        var s1=pr(t1[0],t1[1],t1[2],cx,cy,fov), s2=pr(t2[0],t2[1],t2[2],cx,cy,fov);
+        var mx=(t1[0]+t2[0])/2,my=(t1[1]+t2[1])/2,mz=(t1[2]+t2[2])/2;
+        var ml=Math.sqrt(mx*mx+my*my+mz*mz), ah=radius*1.25;
+        var sc=pr(mx/ml*ah,my/ml*ah,mz/ml*ah,cx,cy,fov);
+        ctx.beginPath(); ctx.moveTo(s1[0],s1[1]); ctx.quadraticCurveTo(sc[0],sc[1],s2[0],s2[1]);
+        ctx.strokeStyle=ARC; ctx.lineWidth=1.1; ctx.stroke();
+        var t=(Math.sin(time*1.2+c.from[0]*0.1)+1)/2;
+        var tx=(1-t)*(1-t)*s1[0]+2*(1-t)*t*sc[0]+t*t*s2[0];
+        var ty=(1-t)*(1-t)*s1[1]+2*(1-t)*t*sc[1]+t*t*s2[1];
+        ctx.beginPath(); ctx.arc(tx,ty,2,0,Math.PI*2); ctx.fillStyle=MK+'1)'; ctx.fill();
+      }
+
+      for(var mi=0;mi<markers.length;mi++){
+        var m=markers[mi], q=ll(m.lat,m.lng,radius), r;
+        r=rX(q[0],q[1],q[2],rx); r=rY(r[0],r[1],r[2],ry);
+        if(r[2]>radius*0.1) continue;
+        var sp=pr(r[0],r[1],r[2],cx,cy,fov);
+        var pulse=Math.sin(time*2+m.lat)*0.5+0.5;
+        ctx.beginPath(); ctx.arc(sp[0],sp[1],4+pulse*4,0,Math.PI*2);
+        ctx.strokeStyle=MK+(0.2+pulse*0.15).toFixed(2)+')'; ctx.lineWidth=1; ctx.stroke();
+        ctx.beginPath(); ctx.arc(sp[0],sp[1],2.5,0,Math.PI*2); ctx.fillStyle=MK+'1)'; ctx.fill();
+      }
+
+      if(!reduce) requestAnimationFrame(draw);
+    }
+
+    canvas.addEventListener('pointerdown',function(e){
+      drag={active:true,sx:e.clientX,sy:e.clientY,ry:rotY,rx:rotX};
+      try{canvas.setPointerCapture(e.pointerId);}catch(_){}
+    });
+    canvas.addEventListener('pointermove',function(e){
+      if(!drag.active) return;
+      rotY=drag.ry+(e.clientX-drag.sx)*0.005;
+      rotX=Math.max(-1,Math.min(1,drag.rx+(e.clientY-drag.sy)*0.005));
+      if(reduce) draw();
+    });
+    canvas.addEventListener('pointerup',function(){drag.active=false;});
+    canvas.addEventListener('pointerleave',function(){drag.active=false;});
+
+    if(reduce){ draw(); window.addEventListener('resize',draw); }
+    else requestAnimationFrame(draw);
+  })();
+</script>
+</body>
+</html>
